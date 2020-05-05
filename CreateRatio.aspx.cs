@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace Corporate_Performance_Analyzer
 {
@@ -14,7 +15,9 @@ namespace Corporate_Performance_Analyzer
         System.Data.OleDb.OleDbConnection conn;
         System.Data.OleDb.OleDbCommand cmd;
         String queryStr;
-        float constructString;
+        String constructString;
+        String extracted;
+        float constructFloat;
         List<float> num_array = new List<float>();
 
 
@@ -34,9 +37,11 @@ namespace Corporate_Performance_Analyzer
         }
         protected void move_to_num(object sender, EventArgs e)
         {
-            constructString = float.Parse(FinancialConstructDropDown.SelectedValue);
+            constructString = FinancialConstructDropDown.SelectedValue;
+            extracted = Regex.Match(constructString, @"([-+]?[0-9]*\.?[0-9]+|-?[\d.]+(?:e-?\d+)?)").Value;
+            constructFloat = float.Parse(extracted);
 
-            num_array.Add(constructString);
+            num_array.Add(constructFloat);
             List<string> l2 = num_array.ConvertAll<string>(x => x.ToString());
             foreach (string s in l2)
             {

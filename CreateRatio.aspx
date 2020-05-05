@@ -21,13 +21,13 @@
 					<div>
 						<h3>Ratio Constructs</h3>
 						<p>
-							<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CPADataConnectionString %>" SelectCommand="SELECT Numbers FROM cpadata.incomestatement WHERE (Company = @Param1) AND (CompanyYear = @Param2)">
+							<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CPADataConnectionString %>" SelectCommand="SELECT FinancialConstructs + ': ' + CAST(Numbers AS VARCHAR(15)) AS ConcatItem FROM cpadata.incomestatement WHERE Company = @Param1 AND CompanyYear = @Param2">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="DropdownList1" Name="Param1" PropertyName="SelectedValue" />
                                     <asp:ControlParameter ControlID="DropdownList2" Name="Param2" PropertyName="SelectedValue" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
-							<asp:DropDownList ID="FinancialConstructDropDown" runat="server" DataSourceID="SqlDataSource3" DataTextField="Numbers" DataValueField="Numbers"></asp:DropDownList>
+							<asp:DropDownList ID="FinancialConstructDropDown" runat="server" DataSourceID="SqlDataSource3" DataTextField="ConcatItem" DataValueField="ConcatItem"></asp:DropDownList>
 						</p>
 					</div>
 				</article>
