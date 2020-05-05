@@ -19,6 +19,7 @@ namespace Corporate_Performance_Analyzer
         String extracted;
         float constructFloat;
         List<float> num_array = new List<float>();
+        List<float> den_array = new List<float>();
 
 
 
@@ -38,18 +39,40 @@ namespace Corporate_Performance_Analyzer
         protected void move_to_num(object sender, EventArgs e)
         {
             constructString = FinancialConstructDropDown.SelectedValue;
-            extracted = Regex.Match(constructString, @"([-+]?[0-9]*\.?[0-9]+|-?[\d.]+(?:e-?\d+)?)").Value;
-            constructFloat = float.Parse(extracted);
+            //float.TryParse(constructString, out constructFloat);
+            extracted = Regex.Match(constructString, @"([-+]?[0-9]*\.?[0-9])").Value;
+            constructFloat = float.Parse(extracted, System.Globalization.NumberStyles.Float);
+            
 
             num_array.Add(constructFloat);
             List<string> l2 = num_array.ConvertAll<string>(x => x.ToString());
             foreach (string s in l2)
             {
-                numerator_textBox.Text = numerator_textBox.Text + "+" + s;
+                numerator_textBox.Text = numerator_textBox.Text + " + " + s;
             }
 
         }
         protected void delete_num(object sender, EventArgs e)
+        {
+
+        }
+        protected void move_to_den(object sender, EventArgs e)
+        {
+            constructString = FinancialConstructDropDown.SelectedValue;
+            //float.TryParse(constructString, out constructFloat);
+            extracted = Regex.Match(constructString, @"([-+]?[0-9]*\.?[0-9])").Value;
+            constructFloat = float.Parse(extracted, System.Globalization.NumberStyles.Float);
+
+
+            den_array.Add(constructFloat);
+            List<string> l2 = den_array.ConvertAll<string>(x => x.ToString());
+            foreach (string s in l2)
+            {
+                denominator_textBox.Text = denominator_textBox.Text + " + " + s;
+            }
+        }
+
+        protected void delete_den(object sender, EventArgs e)
         {
 
         }

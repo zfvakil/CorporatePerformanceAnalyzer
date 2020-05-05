@@ -96,6 +96,24 @@ namespace Corporate_Performance_Analyzer
         protected global::System.Web.UI.WebControls.Button out_num;
 
         /// <summary>
+        /// denominatorPlus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button denominatorPlus;
+
+        /// <summary>
+        /// denominatorMinus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button denominatorMinus;
+
+        /// <summary>
         /// numerator_textBox control.
         /// </summary>
         /// <remarks>
@@ -105,12 +123,12 @@ namespace Corporate_Performance_Analyzer
         protected global::System.Web.UI.WebControls.TextBox numerator_textBox;
 
         /// <summary>
-        /// TextAreaDenominator control.
+        /// denominator_textBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextAreaDenominator;
+        protected global::System.Web.UI.WebControls.TextBox denominator_textBox;
     }
 }

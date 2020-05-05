@@ -21,7 +21,7 @@
 					<div>
 						<h3>Ratio Constructs</h3>
 						<p>
-							<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CPADataConnectionString %>" SelectCommand="SELECT FinancialConstructs + ': ' + CAST(Numbers AS VARCHAR(15)) AS ConcatItem FROM cpadata.incomestatement WHERE Company = @Param1 AND CompanyYear = @Param2">
+							<asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:CPADataConnectionString %>" SelectCommand="SELECT FinancialConstructs + ': ' + str(Numbers) AS ConcatItem FROM cpadata.incomestatement WHERE Company = @Param1 AND CompanyYear = @Param2">
                                 <SelectParameters>
                                     <asp:ControlParameter ControlID="DropdownList1" Name="Param1" PropertyName="SelectedValue" />
                                     <asp:ControlParameter ControlID="DropdownList2" Name="Param2" PropertyName="SelectedValue" />
@@ -37,12 +37,12 @@
 					<div style="padding-top:230px;text-align:center;">
 						<p style="padding-bottom:230px;"><!--Action buttons-->
 							<asp:Button ID="inNum" runat="server" Text=">>" OnClick="move_to_num" class="btn-n" width="50px"/><br />
-							<asp:Button ID="out_num" runat="server" Text=">>" OnClick="delete_num" class="btn-n" width="50px"/><br />
+							<asp:Button ID="out_num" runat="server" Text="<<" OnClick="delete_num" class="btn-n" width="50px"/><br />
 							
 						</p>
 						<p style="padding-bottom:60px;">
-							<button id="denominatorPlus" class="btn btn-block bt-dark text-light"><<</button><br />
-							<button id="denominatorMinus" class="btn btn-block bt-dark text-light">>></button><br />
+							<asp:button id="denominatorPlus" runat="server" Text=">>" OnClick="move_to_den" class="btn-n"></asp:button><br />
+							<asp:button id="denominatorMinus" runat="server" Text="<<" OnClick="delete_den" class="btn-n"></asp:button><br />
 						</p>
 						<p>
 							<button style="width:150px;"id="remove" class="btn btn-block bt-dark text-light">Remove</button><br />
@@ -80,7 +80,7 @@
 							<button id="dDivide" class="btn btn-block bt-dark text-light">/</button>&nbsp;
 						</p>
 						<p>
-							<textarea name="Denominator" id="TextAreaDenominator" TextMode="MultiLine" rows="5" cols="10" runat="server"></textarea>
+							<asp:textbox id="denominator_textBox" TextMode="MultiLine" rows="5" cols="10" runat="server"></asp:textbox>
 						</p>
 					</div>
 				</article>
