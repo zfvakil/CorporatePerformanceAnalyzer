@@ -50,7 +50,7 @@ namespace Corporate_Performance_Analyzer
             List<string> l2 = num_array.ConvertAll<string>(x => ToLongString(x));
             foreach (string s in l2)
             {
-                numerator_textBox.Text = numerator_textBox.Text + " + " + s;
+                numerator_textBox.Text = numerator_textBox.Text + "+" + s;
             }
 
         }
@@ -67,7 +67,7 @@ namespace Corporate_Performance_Analyzer
 
 
             den_array.Add(constructFloat);
-            List<string> l2 = den_array.ConvertAll<string>(x => x.ToString("F15").TrimEnd('0'));
+            List<string> l2 = den_array.ConvertAll<string>(x => ToLongString(x));
             foreach (string s in l2)
             {
                 denominator_textBox.Text = denominator_textBox.Text + "+" + s;
